@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Juego de memoria</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/jpg" href="./screenshot-juanm512-github-io-calendario-interactivo-1622521574615.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./public/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  media="print" onload="this.media='all'">
+	<script async src="https://kit.fontawesome.com/0d71a20d3f.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+
+<body class="w3-light-gray">
+<section class="w3-margin w3-margin-top w3-row w3-padding w3-border w3-border-black">
+	<!-- años -->
+	<div class="w3-col s6 m6 l6 w3-row">
+		<h1 id="startButton" class="w3-col s12 m12 l12 w3-wide w3-center w3-text-dark-grey w3-xlarge w3-button w3-hover-none w3-margin-0">Empezar <i class="fa fa-play w3-text-dark-grey w3-margin-0" style="font-size:24px"></i></h1>
+	</div>
+	<!-- meses -->
+	<div class="w3-col s6 m6 l6 w3-row">
+		<h2 class="w3-col s12 m6 l6 w3-center w3-text-brown w3-xlarge"><b>Cant. tarjetas:</b></h2>
+		<h2 id="disminuirCartasButton" class="w3-col s4 m2 l2 w3-center w3-large"><i class="fa fa-angle-left w3-text-brown w3-button w3-hover-none" style="font-size:24px"></i></h2>
+		<h2 id="textoCantidadCartas" class="w3-col s4 m2 l2 w3-center w3-wide w3-text-brown w3-xlarge"></h2>
+		<h2 id="aumentarCartasButton" class="w3-col s4 m2 l2 w3-center w3-large"><i class="fa fa-angle-right w3-text-brown w3-button w3-hover-none" style="font-size:24px"></i></h2>
+	</div>
+	<!-- dias -->
+	<div id="contenedorGeneralCartas" class="w3-col s12 m12 l12 w3-padding w3-topbar w3-border-dark-grey">
+		<ul id="contenedorUlCartas" class="w3-ul conteiner-row">
+		</ul>
+	</div>
+	
+	
+	
+	<div id="gameCongratulations" class="w3-hide w3-display-middle w3-border w3-border-black w3-row" style="position: fixed;overflow-x: hidden;z-index:1000;width:100%;height:100%;background-color: #0000007d;">
+				<ul class="w3-ul w3-col s12 m8 l8 w3-row w3-white w3-round-medium w3-margin-top128" style="float: none;display: block;margin: auto;">
+					<li class="w3-col s12 m12 l12 w3-medium w3-center w3-xxxlarge w3-wide">Felicitaciones has terminado el juego</li>
+				</ul>
+			</div>
+</section>
+
+
+
+
+
+<!-- Footer-->
+<footer class="w3-container w3-black w3-padding-16">
+  <div class="w3-container w3-center w3-padding-16" style="float: none;display: block;margin: auto;">
+	<a href="https://juanm512.github.io/portafolio/" target="_blank" class="w3-button"><i class="fa fa-user-circle" style="font-size:24px"></i> Portafolio</a>
+	<a href="https://www.linkedin.com/in/juan-manuel-vila-9496b81a6/" target="_blank" class="w3-button"><i class="fa fa-linkedin-square" style="font-size:24px"></i> LinkedIn</a>
+	<a href="mailto:512juanm@gmail.com?Subject=Aquí%20el%20asunto%20del%20mail" target="_blank" class="w3-button"><i class="fa fa-envelope-open-o" style="font-size:24px"></i> 512juanm@gmail.com</a>
+	<a href="https://twitter.com/juanm512" target="_blank"  class="w3-button"><i class="fa fa-twitter-square" style="font-size:24px"></i> Twitter</a>
+	<a href="https://www.instagram.com/juuanmav/" target="_blank" class="w3-button"><i class="fa fa-instagram" style="font-size:24px"></i>  instagram</a>
+  </div>
+</footer> 
+
+
+<script src="./public/script.js"></script>
+
+</body>
+</html>
