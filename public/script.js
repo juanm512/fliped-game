@@ -1,4 +1,6 @@
 let startButton = document.getElementById('startButton');
+let buttonOriginal = startButton.innerHTML;
+
 
 let textoCantidadCartas = document.getElementById('textoCantidadCartas');
 let aumentarCartasButton = document.getElementById('aumentarCartasButton')
@@ -26,10 +28,63 @@ let aciertos = 0;
 actualizarCantTarjetas(cantidades[0]);
 crearLiCards(cantidades[0]);
 
-//añado funcionalidad a boton de start game, a hacer click llma a la fucion que arranca todo
-startButton.addEventListener("click",()=>{
+//aï¿½ado funcionalidad a boton de start game, a hacer click llma a la fucion que arranca todo
+startButton.addEventListener("click", async ()=>{
+	if(gameStarted){
+		gameOver2()
+	}else{
 	empezarJuego()
+	start();
+	}
 }) ;
+
+var isMarch = false; 
+var acumularTime = 0; 
+function start () {
+         if (isMarch == false) { 
+            timeInicial = new Date();
+            control = setInterval(cronometro,10);
+            isMarch = true;
+            }
+         }
+function cronometro () { 
+         timeActual = new Date();
+         acumularTime = timeActual - timeInicial;
+         acumularTime2 = new Date();
+         acumularTime2.setTime(acumularTime); 
+         cc = Math.round(acumularTime2.getMilliseconds()/10);
+         ss = acumularTime2.getSeconds();
+         mm = acumularTime2.getMinutes();
+         hh = acumularTime2.getHours()-18;
+         if (cc < 10) {cc = "0"+cc;}
+         if (ss < 10) {ss = "0"+ss;} 
+         if (mm < 10) {mm = "0"+mm;}
+         startButton.innerHTML = mm+" : "+ss+" : "+cc;
+         }
+
+function stop () { 
+         if (isMarch == true) {
+            clearInterval(control);
+            isMarch = false;
+            }
+		 
+         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //cambio el titulo del mes y animation
 //a la vez genero los nuevos dias que se necesitan
@@ -151,9 +206,6 @@ function flip(a){
 		if(aciertos==parseInt(textoCantidadCartas.innerText)/2){
 			console.log("JUEGO TERMINADO");
 			gameOver();
-			gameStarted=false;
-			cantDadasVuelta = 0;
-			aciertos=0;
 		}
 	}else{
 		document.getElementById(`${a}`).classList.toggle('is-flipped');
@@ -170,17 +222,38 @@ function actualizarCantTarjetas(cantidad) {
 function empezarJuego() {
 	let cantActual = cantidades.indexOf( parseInt(textoCantidadCartas.innerText) );
 	
+	startButton.classList.add('w3-pale-green');
+	startButton.classList.remove('w3-hover-pale-green');
+	startButton.classList.add('w3-hover-pale-red');
+
+
 	//creo los li y borro los anteriores
 	crearLiCards(cantidades[cantActual]);
 	cantDadasVuelta = 0;
 	gameStarted=true;
+
 	console.log("\\\\\\\\\\\\\\\\\\GAME STARTED///////////////////////");
 }
 function gameOver(){
+	gameStarted=false;
+	cantDadasVuelta = 0;
+	aciertos=0;
 	console.log("\\\\\\\\\\\\\\\\\\GAME FINISHED///////////////////////");
-	console.log
 	setTimeout(function(){ document.getElementById("gameCongratulations").classList.remove("w3-hide"); }, 1000);
-	setTimeout(function(){ document.getElementById("gameCongratulations").classList.add("w3-hide"); }, 3000);
+	document.getElementById("textoCongratulations").innerHTML= 'Felicitaciones has terminado el juego<br>' + 'Tardaste ' + startButton.innerHTML;
+	setTimeout(function(){ document.getElementById("gameCongratulations").classList.add("w3-hide"); }, 6000);
+	stop ();
+	startButton.innerHTML =buttonOriginal;
+}
+
+//cuando se finaliza de brutamente
+function gameOver2(){
+	gameStarted=false;
+	cantDadasVuelta = 0;
+	aciertos=0;
+	console.log("\\\\\\\\\\\\\\\\\\GAME FINISHED///////////////////////");
+	stop();
+	startButton.innerHTML =buttonOriginal;
 }
 
 
